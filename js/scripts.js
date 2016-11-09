@@ -448,7 +448,7 @@ function drawChimeny() {
 }
 var chimneyX = chimLeftFrontX;
 var chimneyY = chimTopFrontY;
-
+//ADD SMOKE OPACITY VARIABLE
 function drawSmoke1(scaleX, scaleY) {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -585,7 +585,7 @@ function drawHouse() {
     drawDecorBody();
     drawDecorRoof();
 }
-
+//MAKE THE CLOUDS PROPER CLOUDS
 function drawClouds() {
     "use strict";
     shapes = document.getElementById("myShapes");

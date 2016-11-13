@@ -60,10 +60,7 @@ function drawMountains() {
         ctx.stroke();
     }
 }
-var xCloud = -100;
-var xCloud2 = xcloud * 1.5;
-var xCloud3 = xcloud * 2;
-var xCloud4 = xcloud * .5;
+
 
 function drawBackground() {
     "use strict";
@@ -455,6 +452,7 @@ function drawSmoke1(scaleX, scaleY) {
     ctx = shapes.getContext("2d");
     ctx.save();
     ctx.scale(scaleX, scaleY);
+
     //Draws Smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
@@ -493,24 +491,26 @@ function drawSmoke2(scaleX, scaleY) {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    var xMod = -20;
+    var yMod = -20;
     ctx.save();
     ctx.scale(scaleX, scaleY);
     //Draws smoke puff
     ctx.beginPath();
-    ctx.moveTo(chimneyX, chimneyY);
-    ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 8, chimneyX + 20, chimneyY);
-    ctx.quadraticCurveTo(chimneyX + 50, chimneyY, chimneyX + 30, chimneyY - 30);
-    ctx.quadraticCurveTo(chimneyX + 15, chimneyY - 50, chimneyX + 5, chimneyY - 28);
-    ctx.quadraticCurveTo(chimneyX - 20, chimneyY - 10, chimneyX, chimneyY);
+    ctx.moveTo(chimneyX + xMod, chimneyY - yMod);
+    ctx.quadraticCurveTo(chimneyX + 10 + xMod, chimneyY + 8 - yMod, chimneyX + 20 + xMod, chimneyY - yMod);
+    ctx.quadraticCurveTo(chimneyX + 50 + xMod, chimneyY - yMod, chimneyX + 30 + xMod, chimneyY - 30 - yMod);
+    ctx.quadraticCurveTo(chimneyX + 15 + xMod, chimneyY - 50 - yMod, chimneyX + 5 + xMod, chimneyY - 28 - yMod);
+    ctx.quadraticCurveTo(chimneyX - 20 + xMod, chimneyY - 10 - yMod, chimneyX + xMod, chimneyY - yMod);
     ctx.closePath();
     ctx.fillStyle = "rgba(120,120,120,0.8)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
-    ctx.moveTo(chimneyX + 10, chimneyY - 26);
-    ctx.quadraticCurveTo(chimneyX + 20, chimneyY - 20, chimneyX + 25, chimneyY - 26);
-    ctx.quadraticCurveTo(chimneyX + 30, chimneyY - 26, chimneyX + 28, chimneyY - 30);
-    ctx.quadraticCurveTo(chimneyX + 10, chimneyY - 40, chimneyX + 3, chimneyY - 26);
+    ctx.moveTo(chimneyX + 10 + xMod, chimneyY - 26 - yMod);
+    ctx.quadraticCurveTo(chimneyX + 20 + xMod, chimneyY - 20 - yMod, chimneyX + 25 + xMod, chimneyY - 26 - yMod);
+    ctx.quadraticCurveTo(chimneyX + 30 + xMod, chimneyY - 26 - yMod, chimneyX + 28 + xMod, chimneyY - 30 - yMod);
+    ctx.quadraticCurveTo(chimneyX + 10 + xMod, chimneyY - 40 - yMod, chimneyX + 3 + xMod, chimneyY - 26 - yMod);
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
@@ -526,27 +526,29 @@ function drawSmoke2(scaleX, scaleY) {
     ctx.restore();
 }
 
-function drawSmoke3(scaleX, scaleY) {
+function drawSmoke3(scaleX, scaleY, xMod, yMod) {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
+    var xMod2 = -40;
+    var yMod2 = -40;
     ctx.save();
     ctx.scale(scaleX, scaleY);
     //Draws smoke puff
     ctx.beginPath();
-    ctx.moveTo(chimneyX, chimneyY);
-    ctx.quadraticCurveTo(chimneyX + 30, chimneyY, chimneyX + 8, chimneyY - 30);
-    ctx.quadraticCurveTo(chimneyX, chimneyY - 50, chimneyX - 20, chimneyY - 35);
-    ctx.quadraticCurveTo(chimneyX - 35, chimneyY - 35, chimneyX - 30, chimneyY - 20);
-    ctx.quadraticCurveTo(chimneyX - 35, chimneyY + 8, chimneyX, chimneyY);
+    ctx.moveTo(chimneyX + xMod2, chimneyY - yMod2);
+    ctx.quadraticCurveTo(chimneyX + xMod2 + 30, chimneyY - yMod2, chimneyX + xMod2 + 8, chimneyY - yMod2 - 30);
+    ctx.quadraticCurveTo(chimneyX + xMod2, chimneyY - yMod2 - 50, chimneyX + xMod2 - 20, chimneyY - yMod2 - 35);
+    ctx.quadraticCurveTo(chimneyX + xMod2 - 35, chimneyY - yMod2 - 35, chimneyX + xMod2 - 30, chimneyY - yMod2 - 20);
+    ctx.quadraticCurveTo(chimneyX + xMod2 - 35, chimneyY - yMod2 + 8, chimneyX + xMod2, chimneyY - yMod2);
     ctx.closePath();
     ctx.fillStyle = "rgba(120,120,120,0.8)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
-    ctx.moveTo(chimneyX - 10, chimneyY - 26);
-    ctx.quadraticCurveTo(chimneyX - 5, chimneyY - 20, chimneyX, chimneyY - 30);
-    ctx.bezierCurveTo(chimneyX - 2, chimneyY - 40, chimneyX - 25, chimneyY - 35, chimneyX - 10, chimneyY - 26);
+    ctx.moveTo(chimneyX + xMod2 - 10, chimneyY - yMod2 - 26);
+    ctx.quadraticCurveTo(chimneyX + xMod2 - 5, chimneyY - yMod2 - 20, chimneyX + xMod2, chimneyY - yMod2 - 30);
+    ctx.bezierCurveTo(chimneyX + xMod2 - 2, chimneyY - yMod2 - 40, chimneyX + xMod2 - 25, chimneyY - yMod2 - 35, chimneyX + xMod2 - 10, chimneyY - yMod2 - 26);
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
@@ -567,9 +569,12 @@ function drawSmokeFormation(scale) {
     var scaleY = Math.random() * (1.01 - 0.99) + 0.99;
     if (chimneyX >= smokeLimitX2) {
         drawSmoke3(scaleX, scaleY);
+        drawSmoke2(scaleX, scaleY);
+        drawSmoke1(scaleX, scaleY);
     }
     else if (chimneyX >= smokeLimitX1) {
         drawSmoke2(scaleX, scaleY);
+        drawSmoke1(scaleX, scaleY);
     }
     else {
         drawSmoke1(scaleX, scaleY);
@@ -586,6 +591,13 @@ function drawHouse() {
     drawDecorRoof();
 }
 //MAKE THE CLOUDS PROPER CLOUDS
+
+var xCloud = -100;
+var xCloud2 = xcloud * 1.5;
+var xCloud3 = xcloud * 2;
+var xCloud4 = xcloud * .5;
+var yCloud = 75;
+
 function drawClouds() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -602,27 +614,51 @@ function drawClouds() {
     ctx.scale(1, .5);
     ctx.clearRect(0, 0, shapes.width, radius * 6.4);
     ctx.fillRect(0, 0, shapes.width, radius * 6.5);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    //Cloud1
     ctx.beginPath();
-    ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
+    //ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
+    ctx.moveTo(xCloud, yCloud);
+    ctx.bezierCurveTo(xCloud + 20, yCloud + 40, xCloud + 60, yCloud + 40, xCloud + 80, yCloud);
+    ctx.bezierCurveTo(xCloud + 100, yCloud - 10, xCloud + 100, yCloud - 40, xCloud + 80, yCloud - 40);
+    ctx.bezierCurveTo(xCloud + 80, yCloud - 60, xCloud + 60, yCloud - 80, xCloud + 40, yCloud - 60);
+    ctx.bezierCurveTo(xCloud + 40, yCloud - 60, xCloud, yCloud - 80, xCloud, yCloud - 40);
+    ctx.bezierCurveTo(xCloud - 20, yCloud - 40, xCloud - 20, yCloud, xCloud, yCloud);
     ctx.closePath();
     ctx.fill();
-    ctx.stroke();
+
+    //Cloud2
     ctx.beginPath();
-    ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
+    //ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
+    ctx.moveTo(xCloud2, yCloud*2);
+    ctx.bezierCurveTo(xCloud2, yCloud*2 + 10, xCloud2 + 40, yCloud*2 + 10, xCloud2 + 40, yCloud*2);
+    ctx.bezierCurveTo(xCloud2 + 40, yCloud*2 + 10, xCloud2 + 80, yCloud*2 + 10,  xCloud2 + 80, yCloud*2);
+    ctx.bezierCurveTo(xCloud2 + 100, yCloud*2, xCloud2 + 100, yCloud*2 - 40, xCloud2 + 80, yCloud*2 - 40);
+    ctx.bezierCurveTo(xCloud2 + 90, yCloud*2 - 60, xCloud2 + 40, yCloud*2 - 80, xCloud2 + 20, yCloud*2 - 60);
+    ctx.quadraticCurveTo(xCloud2, yCloud*2 - 60, xCloud2, yCloud*2 - 40);
+    ctx.bezierCurveTo(xCloud2 - 20, yCloud*2 - 40, xCloud2 - 20, yCloud*2, xCloud2, yCloud*2);
     ctx.closePath();
     ctx.fill();
-    ctx.stroke();
+
+    //Cloud3
     ctx.beginPath();
-    ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
+    //ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
+    ctx.moveTo(xCloud3, yCloud*0.5);
+    ctx.bezierCurveTo(xCloud3, yCloud*0.5 + 10, xCloud3 + 50, yCloud*0.5 + 10, xCloud3 + 50, yCloud*0.5);
+    ctx.bezierCurveTo(xCloud3 + 60, yCloud*0.5, xCloud3 + 60, yCloud*0.5 - 20, xCloud3 + 50, yCloud*0.5 - 20);
+    ctx.quadraticCurveTo(xCloud3 + 50, yCloud*0.5 - 30, xCloud3 + 40, yCloud*0.5 - 30);
+    ctx.bezierCurveTo(xCloud3 + 40, yCloud*0.5 - 40, xCloud3 + 10, yCloud*0.5 - 40, xCloud3 + 10, yCloud*0.5 - 30);
+    ctx.quadraticCurveTo(xCloud3, yCloud*0.5 - 30, xCloud3, yCloud*0.5 - 20);
+    ctx.bezierCurveTo(xCloud3 - 10, yCloud*0.5 - 20, xCloud3 - 10, yCloud*0.5, xCloud3, yCloud*0.5);
     ctx.closePath();
     ctx.fill();
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
+
+    //Cloud4
+    //ctx.beginPath();
+    //ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
+    //ctx.closePath();
+    //ctx.fill();
+    //ctx.stroke();
     ctx.restore();
     if (xCloud < shapes.width + radius) {
         xCloud += 2;
@@ -642,12 +678,6 @@ function drawClouds() {
     else {
         xCloud3 = -100;
     }
-    if (xCloud4 < shapes.width + radius) {
-        xCloud4 += 1;
-    }
-    else {
-        xCloud4 = -100;
-    }
     drawSmokeFormation();
 }
 
@@ -655,7 +685,7 @@ function house(speed) {
     clearInterval(inter);
     "use strict";
     shapes = document.getElementById("myShapes");
-    smokeLimitX1 = chimLeftBackX + (shapes.width - chimLeftBackX) / 3;
-    smokeLimitX2 = chimLeftBackX + 2 * (shapes.width - chimLeftBackX) / 3;
+    smokeLimitX1 = chimLeftBackX + (shapes.width - chimLeftBackX) / 14;
+    smokeLimitX2 = chimLeftBackX + 2 * (shapes.width - chimLeftBackX) / 14;
     inter = setInterval(drawClouds, 150 - speed);
 }

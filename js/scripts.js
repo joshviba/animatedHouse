@@ -477,7 +477,7 @@ function drawSmoke1(scaleX, scaleY) {
     ctx.quadraticCurveTo(chimneyX + xMod - 12, chimneyY - yMod - 25, chimneyX + xMod - 10, chimneyY - yMod - 15);
     ctx.quadraticCurveTo(chimneyX + xMod - 15, chimneyY - yMod + 5, chimneyX + xMod, chimneyY - yMod );
     ctx.closePath();
-    ctx.fillStyle = "rgba(120,120,120,0.95)";
+    ctx.fillStyle = "rgba(120,120,120,0.7)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
@@ -527,7 +527,7 @@ function drawSmoke2(scaleX, scaleY) {
     ctx.quadraticCurveTo(chimneyX + 15 + xMod, chimneyY - 50 - yMod, chimneyX + 5 + xMod, chimneyY - 28 - yMod);
     ctx.quadraticCurveTo(chimneyX - 20 + xMod, chimneyY - 10 - yMod, chimneyX + xMod, chimneyY - yMod);
     ctx.closePath();
-    ctx.fillStyle = "rgba(120,120,120,0.95)";
+    ctx.fillStyle = "rgba(120,120,120,0.8)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();
@@ -573,7 +573,7 @@ function drawSmoke3(scaleX, scaleY, xMod, yMod) {
     ctx.quadraticCurveTo(chimneyX + xMod2 - 35, chimneyY - yMod2 - 35, chimneyX + xMod2 - 30, chimneyY - yMod2 - 20);
     ctx.quadraticCurveTo(chimneyX + xMod2 - 35, chimneyY - yMod2 + 8, chimneyX + xMod2, chimneyY - yMod2);
     ctx.closePath();
-    ctx.fillStyle = "rgba(120,120,120,0.95)";
+    ctx.fillStyle = "rgba(120,120,120,0.9)";
     ctx.fill();
     //Draws lighter area
     ctx.beginPath();

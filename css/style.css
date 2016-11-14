@@ -9,3 +9,23 @@ canvas {
 canvas {
     padding-bottom: 10px;
 }
+section {
+    background-color: #37474F;
+    color: #FFFFFF;
+    height: 150%;
+    margin-top: auto;
+}
+
+h3 {
+    background-color: #37474F;
+    color: white;
+    height: 120%;
+    padding-left: 10px;
+}
+
+h4 {
+    background-color: #37474F;
+    color: white;
+    height: 120%;
+    padding-left: 10px;
+}

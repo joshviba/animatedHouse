@@ -37,6 +37,7 @@ var chimBottomFrontY = chimTopFrontY + chimenySizeY;
 var smokeLimitX1;
 var smokeLimitX2;
 
+//Draws mountains in background
 function drawMountains() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -60,8 +61,7 @@ function drawMountains() {
         ctx.stroke();
     }
 }
-
-
+//Draws background
 function drawBackground() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -74,7 +74,7 @@ function drawBackground() {
     drawMountains();
     ctx.strokeRect(-1, (bottomBackFaceHouseBodyY - houseDimensionY / 4), shapes.width + 2, shapes.height + 1);
 }
-
+//Draws logs on body of house
 function drawLogsBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -112,7 +112,7 @@ function drawLogsBody() {
         ctx.stroke();
     }
 }
-
+//Draws logs on roof of house
 function drawLogsRoof() {
     var logs = 9;
     var logsInterval = 20;
@@ -158,7 +158,7 @@ function drawLogsRoof() {
         ctx.stroke();
     }
 }
-
+//Draws planks on body of house
 function drawPlanksHouse() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -173,7 +173,7 @@ function drawPlanksHouse() {
         ctx.stroke();
     }
 }
-
+//Draws body of the house
 function houseBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -207,7 +207,7 @@ function houseBody() {
     drawPlanksHouse();
     drawLogsBody();
 }
-
+//Draws planks on roof of house
 function drawPlanksRoof() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -230,7 +230,7 @@ function drawPlanksRoof() {
         }
     }
 }
-
+//Draws the roof
 function houseRoof() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -258,7 +258,7 @@ function houseRoof() {
     drawPlanksRoof();
     drawLogsRoof();
 }
-
+//Draws decor on body of house
 function drawDecorBody() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -309,7 +309,7 @@ function drawDecorBody() {
     ctx.closePath();
     ctx.stroke();
 }
-
+//Draws decor on roof of house
 function drawDecorRoof() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -338,7 +338,7 @@ function drawDecorRoof() {
     ctx.closePath()
     ctx.stroke();
 }
-
+//Draws bricks on the chimney
 function drawBricks() {
     "use strict"
     shapes = document.getElementById("myShapes");
@@ -406,7 +406,7 @@ function drawBricks() {
         ctx.closePath();
     }
 }
-
+//Draws the chimney
 function drawChimeny() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -443,17 +443,19 @@ function drawChimeny() {
     //Draws the bricks
     drawBricks();
 }
+
+//Variables for smoke orientation
 var chimneyX = chimLeftFrontX;
 var chimneyY = chimTopFrontY;
-//ADD SMOKE OPACITY VARIABLE
+
+//Draws smoke puff 1
 function drawSmoke1(scaleX, scaleY) {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
     ctx.save();
     ctx.scale(scaleX, scaleY);
-
-    //Draws Smoke puff
+    //Draws smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
     ctx.quadraticCurveTo(chimneyX + 10, chimneyY + 5, chimneyX + 20, chimneyY - 10);
@@ -475,7 +477,7 @@ function drawSmoke1(scaleX, scaleY) {
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
-    //If else that..
+    //Changes smoke position
     if (chimneyX < shapes.width && chimneyY > 0) {
         chimneyX += 3;
         chimneyY -= 2;
@@ -486,7 +488,7 @@ function drawSmoke1(scaleX, scaleY) {
     }
     ctx.restore();
 }
-
+//Draws smoke puff 2
 function drawSmoke2(scaleX, scaleY) {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -514,7 +516,7 @@ function drawSmoke2(scaleX, scaleY) {
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
-    //If else that..
+    //Changes smoke location
     if (chimneyX < shapes.width && chimneyY > 0) {
         chimneyX += 4;
         chimneyY -= 2;
@@ -525,12 +527,12 @@ function drawSmoke2(scaleX, scaleY) {
     }
     ctx.restore();
 }
-
+//Draws smoke puff 3
 function drawSmoke3(scaleX, scaleY, xMod, yMod) {
     "use strict";
     shapes = document.getElementById("myShapes");
     ctx = shapes.getContext("2d");
-    var xMod2 = -40;
+    var xMod2 = -30;
     var yMod2 = -40;
     ctx.save();
     ctx.scale(scaleX, scaleY);
@@ -552,7 +554,7 @@ function drawSmoke3(scaleX, scaleY, xMod, yMod) {
     ctx.closePath();
     ctx.fillStyle = "rgba(255,255,255,0.7)";
     ctx.fill();
-    //If else that..
+    //Changes smoke location
     if (chimneyX < shapes.width && chimneyY > 0) {
         chimneyX += 3;
         chimneyY -= 1;
@@ -563,7 +565,7 @@ function drawSmoke3(scaleX, scaleY, xMod, yMod) {
     }
     ctx.restore();
 }
-
+//Draws the smoke formation coming out of chimney
 function drawSmokeFormation(scale) {
     var scaleX = Math.random() * (1.01 - 0.99) + 0.99;
     var scaleY = Math.random() * (1.01 - 0.99) + 0.99;
@@ -590,14 +592,15 @@ function drawHouse() {
     drawDecorBody();
     drawDecorRoof();
 }
-//MAKE THE CLOUDS PROPER CLOUDS
 
+//Variables for clouds
 var xCloud = -100;
 var xCloud2 = xcloud * 1.5;
 var xCloud3 = xcloud * 2;
 var xCloud4 = xcloud * .5;
 var yCloud = 75;
 
+//Draws clouds
 function drawClouds() {
     "use strict";
     shapes = document.getElementById("myShapes");
@@ -615,9 +618,8 @@ function drawClouds() {
     ctx.clearRect(0, 0, shapes.width, radius * 6.4);
     ctx.fillRect(0, 0, shapes.width, radius * 6.5);
     ctx.fillStyle = "rgba(255,255,255,0.8)";
-    //Cloud1
+    //Draws cloud 1
     ctx.beginPath();
-    //ctx.arc(xCloud, yCloud, radius, startAngle, endAngle);
     ctx.moveTo(xCloud, yCloud);
     ctx.bezierCurveTo(xCloud + 20, yCloud + 40, xCloud + 60, yCloud + 40, xCloud + 80, yCloud);
     ctx.bezierCurveTo(xCloud + 100, yCloud - 10, xCloud + 100, yCloud - 40, xCloud + 80, yCloud - 40);
@@ -627,9 +629,8 @@ function drawClouds() {
     ctx.closePath();
     ctx.fill();
 
-    //Cloud2
+    //Draws cloud 2
     ctx.beginPath();
-    //ctx.arc(xCloud2, yCloud * 2, radius, startAngle, endAngle);
     ctx.moveTo(xCloud2, yCloud*2);
     ctx.bezierCurveTo(xCloud2, yCloud*2 + 10, xCloud2 + 40, yCloud*2 + 10, xCloud2 + 40, yCloud*2);
     ctx.bezierCurveTo(xCloud2 + 40, yCloud*2 + 10, xCloud2 + 80, yCloud*2 + 10,  xCloud2 + 80, yCloud*2);
@@ -640,9 +641,8 @@ function drawClouds() {
     ctx.closePath();
     ctx.fill();
 
-    //Cloud3
+    //Draws cloud 3
     ctx.beginPath();
-    //ctx.arc(xCloud3, yCloud * .75, radius, startAngle, endAngle);
     ctx.moveTo(xCloud3, yCloud*0.5);
     ctx.bezierCurveTo(xCloud3, yCloud*0.5 + 10, xCloud3 + 50, yCloud*0.5 + 10, xCloud3 + 50, yCloud*0.5);
     ctx.bezierCurveTo(xCloud3 + 60, yCloud*0.5, xCloud3 + 60, yCloud*0.5 - 20, xCloud3 + 50, yCloud*0.5 - 20);
@@ -653,12 +653,6 @@ function drawClouds() {
     ctx.closePath();
     ctx.fill();
 
-    //Cloud4
-    //ctx.beginPath();
-    //ctx.arc(xCloud4, yCloud * 1.5, radius, startAngle, endAngle);
-    //ctx.closePath();
-    //ctx.fill();
-    //ctx.stroke();
     ctx.restore();
     if (xCloud < shapes.width + radius) {
         xCloud += 2;
@@ -680,7 +674,7 @@ function drawClouds() {
     }
     drawSmokeFormation();
 }
-
+//Changes animation speed
 function house(speed) {
     clearInterval(inter);
     "use strict";

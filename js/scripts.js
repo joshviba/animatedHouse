@@ -447,6 +447,7 @@ function drawChimeny() {
 //Variables for smoke orientation
 var chimneyX = chimLeftFrontX;
 var chimneyY = chimTopFrontY;
+//var alphaMod = 0.8;
 
 //Draws smoke puff 1
 function drawSmoke1(scaleX, scaleY) {
@@ -455,6 +456,14 @@ function drawSmoke1(scaleX, scaleY) {
     ctx = shapes.getContext("2d");
     ctx.save();
     ctx.scale(scaleX, scaleY);
+
+    /*var alphaMod = 0.8;
+    ctx.globalAlpha = alphaMod;
+    if (chimneyX < shapes.width && chimneyY > 0) {
+      alphaMod -= 0.018;
+    } else {
+      alphaMod = 0.8;
+    }*/
     //Draws smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX, chimneyY);
@@ -475,18 +484,22 @@ function drawSmoke1(scaleX, scaleY) {
     ctx.quadraticCurveTo(chimneyX + 2, chimneyY - 12, chimneyX - 5, chimneyY - 10);
     ctx.lineTo(chimneyX - 6, chimneyY - 6);
     ctx.closePath();
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
     ctx.fill();
+
     //Changes smoke position
     if (chimneyX < shapes.width && chimneyY > 0) {
         chimneyX += 3;
         chimneyY -= 2;
+        //alphaMod -= 0.018;
     }
     else {
         chimneyX = chimLeftBackX;
         chimneyY = chimTopBackY;
+        //alphaMod = 0.8
     }
     ctx.restore();
+
 }
 //Draws smoke puff 2
 function drawSmoke2(scaleX, scaleY) {
@@ -497,6 +510,7 @@ function drawSmoke2(scaleX, scaleY) {
     var yMod = -20;
     ctx.save();
     ctx.scale(scaleX, scaleY);
+
     //Draws smoke puff
     ctx.beginPath();
     ctx.moveTo(chimneyX + xMod, chimneyY - yMod);
